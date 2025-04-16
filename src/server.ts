@@ -11,6 +11,9 @@ import {
   MultiCityRequest 
 } from './models/flightSearch.js';
 import { DuffelClient } from './api/duffelClient.js';
+import { DuffelStaysClient } from './api/duffelStaysClient.js';
+import { staySearchSchema, StaySearch } from './models/staySearch.js';
+import { stayReviewSchema, StayReviewRequest } from './models/stayReview.js';
 
 // Create MCP server
 export const createServer = () => {
@@ -19,8 +22,9 @@ export const createServer = () => {
     version: '1.0.0' 
   });
 
-  // Initialize Duffel client
+  // Initialize Duffel clients
   const flightClient = new DuffelClient();
+  const staysClient = new DuffelStaysClient();
 
   // Search for flights
   server.tool(
@@ -170,6 +174,50 @@ export const createServer = () => {
         
       } catch (error) {
         console.error(`Error searching multi-city flights: ${error}`);
+        throw error;
+      }
+    }
+  );
+
+  // Search for stays (hotels/accommodations)
+  server.tool(
+    'search_stays',
+    staySearchSchema.shape,
+    async (params: StaySearch) => {
+      try {
+        const response = await staysClient.searchOffers(params);
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(response, null, 2)
+            }
+          ]
+        };
+      } catch (error) {
+        console.error(`Error searching stays: ${error}`);
+        throw error;
+      }
+    }
+  );
+
+  // Get stay reviews
+  server.tool(
+    'get_stay_reviews',
+    stayReviewSchema.shape,
+    async (params: StayReviewRequest) => {
+      try {
+        const response = await staysClient.getStayReviews(params);
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(response, null, 2)
+            }
+          ]
+        };
+      } catch (error) {
+        console.error(`Error fetching stay reviews: ${error}`);
         throw error;
       }
     }

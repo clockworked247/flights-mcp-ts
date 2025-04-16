@@ -1,17 +1,17 @@
-# Flight Search MCP (TypeScript)
+# Flight + Stay Search MCP (TypeScript)
 
-A TypeScript implementation of a flight search MCP server that uses the Duffel API to search for flights. This MCP server provides tools to search for one-way, round-trip, and multi-city flights.
+A TypeScript implementation of a flight & Stay search MCP server that uses the Duffel API to search for flights. This MCP server provides tools to search for one-way, round-trip, and multi-city flights.
 
 [![smithery badge](https://smithery.ai/badge/@clockworked247/flights-mcp-ts)](https://smithery.ai/server/@clockworked247/flights-mcp-ts)
 
 ## Features
 
 - Search for one-way, round-trip, and multi-city flights
-- Search for travel stays (hotels/accommodations)
-- Get guest reviews for a specific stay/hotel
 - Get detailed information about specific flight offers
 - Specify cabin class, number of passengers, and connection preferences
 - Filter by departure and arrival time windows
+- Search for travel stays (hotels/accommodations)
+- Get guest reviews for a specific stay/hotel
 
 ## Setup
 

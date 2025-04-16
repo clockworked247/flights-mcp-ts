@@ -2,6 +2,8 @@
 
 A TypeScript implementation of a flight search MCP server that uses the Duffel API to search for flights. This MCP server provides tools to search for one-way, round-trip, and multi-city flights.
 
+[![smithery badge](https://smithery.ai/badge/@clockworked247/flights-mcp-ts)](https://smithery.ai/server/@clockworked247/flights-mcp-ts)
+
 ## Features
 
 - Search for one-way, round-trip, and multi-city flights

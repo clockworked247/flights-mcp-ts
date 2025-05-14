@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/clockworked247-flights-mcp-ts-badge.png)](https://mseep.ai/app/clockworked247-flights-mcp-ts)
+
 # Flight + Stay Search MCP (TypeScript)
 
 A TypeScript implementation of a flight & Stay search MCP server that uses the Duffel API to search for flights. This MCP server provides tools to search for one-way, round-trip, and multi-city flights.
